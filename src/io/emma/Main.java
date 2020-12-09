@@ -2,18 +2,17 @@ package io.emma;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 
 public class Main {
 
-
-
+    // Variables
     static int playerOne;
     static int playerTwo;
     static String playerOneName;
     static String playerTwoName;
 
+    // Method for converting text input to numbers
     static int inputConverter(Scanner reader) {
         String stringAnswer = reader.nextLine();
         int numAnswer = 0;
@@ -32,6 +31,7 @@ public class Main {
         return numAnswer;
     }
 
+    // Method for randomizing and printing a response for the AI opponent
     static void computerAnswer() {
         playerTwoName = "Datorn";
         Random random = new Random();
@@ -48,6 +48,7 @@ public class Main {
         }
     }
 
+    // Method for printing who won the game
     static void gameReviewer() {
         if(playerOne == 1) {
             if (playerTwo == 1) {
@@ -103,11 +104,12 @@ public class Main {
 
         Scanner reader = new Scanner(System.in);
 
+        // Game instructions and set up
         System.out.println("Välkommen till spelet Sten, Sax, Påse");
-        System.out.print("Välj singelplayer(s) eller multiplayer(m): ");
+        System.out.print("Välj singel player(s) eller multi player(m): ");
         String gameSelection = reader.nextLine();
 
-
+        // Single player game code
         if(gameSelection.equals("s")) {
             System.out.println("Ditt namn:");
             playerOneName = reader.nextLine();
@@ -121,6 +123,7 @@ public class Main {
             gameReviewer();
         }
 
+        // Multi player (AI) game code
         else if(gameSelection.equals("m")) {
             System.out.println("Ditt namn:");
             playerOneName = reader.nextLine();
